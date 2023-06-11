@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.ecnu</groupId>
+        <artifactId>smart-agriculture</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>smart-agriculture-application</artifactId>
+    <packaging>jar</packaging>
+    <description>主启动模块</description>
+
+    <properties>
+        <jnuit.version>4.13.2</jnuit.version>
+        <lombok.versin>1.18.22</lombok.versin>
+        <dynamic.datasource.version>3.5.1</dynamic.datasource.version>
+        <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
+        <oracle.connector.java.version>21.5.0.0</oracle.connector.java.version>
+        <mssql.connector.java.version>11.2.1.jre8</mssql.connector.java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.java.version}</version>
+        </dependency>
+
+
+        <!-- 登录鉴权插件 -->
+        <dependency>
+            <groupId>cn.ecnu</groupId>
+            <artifactId>smart-agriculture-plugin-auth</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- 业务功能插件 -->
+        <dependency>
+            <groupId>cn.ecnu</groupId>
+            <artifactId>smart-agriculture-plugin-biz</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- C端功能插件 -->
+        <dependency>
+            <groupId>cn.ecnu</groupId>
+            <artifactId>smart-agriculture-plugin-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- 开发工具插件 -->
+        <dependency>
+            <groupId>cn.ecnu</groupId>
+            <artifactId>smart-agriculture-plugin-dev</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- 系统功能插件 -->
+        <dependency>
+            <groupId>cn.ecnu</groupId>
+            <artifactId>smart-agriculture-plugin-sys</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.5.4</version>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
